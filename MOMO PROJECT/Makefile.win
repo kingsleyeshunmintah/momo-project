@@ -1,0 +1,28 @@
+# Project: MOMO_PROJECT
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = momo_project.o
+LINKOBJ  = momo_project.o
+LIBS     = -L"D:/ecodeLabs Dev/installed/Dev-Cpp/MinGW64/lib" -L"D:/ecodeLabs Dev/installed/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/ecodeLabs Dev/installed/Dev-Cpp/MinGW64/include" -I"D:/ecodeLabs Dev/installed/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/ecodeLabs Dev/installed/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/ecodeLabs Dev/installed/Dev-Cpp/MinGW64/include" -I"D:/ecodeLabs Dev/installed/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/ecodeLabs Dev/installed/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/ecodeLabs Dev/installed/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = MOMO_PROJECT.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+momo_project.o: momo_project.cpp
+	$(CPP) -c momo_project.cpp -o momo_project.o $(CXXFLAGS)
